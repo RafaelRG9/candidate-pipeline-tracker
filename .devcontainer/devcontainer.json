@@ -1,14 +1,32 @@
 {
-  "name": "Java & SQLite Environment",
+  "name": "Rafo's Pipeline Tracker Env",
   "image": "mcr.microsoft.com/devcontainers/java:17",
-  "features": {},
-  "postCreateCommand": "sudo apt-get update && sudo apt-get install -y sqlite3",
+  "features": {
+    "ghcr.io/devcontainers/features/sqlite3:1": {}
+  },
   "customizations": {
     "vscode": {
+      "settings": {
+        "workbench.colorTheme": "Everforest Pro Dark Vibrant",
+        "java.configuration.runtimes": [
+          {
+            "name": "JavaSE-17",
+            "path": "/usr/local/sdkman/candidates/java/current",
+            "default": true
+          }
+        ]
+      },
       "extensions": [
         "vscjava.vscode-java-pack",
-        "qwtel.sqlite-viewer"
+        "SonarSource.sonarlint-vscode",
+        "qwtel.sqlite-viewer",
+        "usernamehw.errorlens",
+        "eamodio.gitlens",
+        "shengchen.vscode-checkstyle",
+        "yzhang.markdown-all-in-one",
+        "AndreiLucaci.everforest-pro"
       ]
     }
-  }
+  },
+  "postCreateCommand": "mvn clean install"
 }
