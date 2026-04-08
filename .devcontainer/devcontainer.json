@@ -1,6 +1,8 @@
 {
   "name": "Java & SQLite Environment",
   "image": "mcr.microsoft.com/devcontainers/java:17",
+  "features": {},
+  "postCreateCommand": "sudo apt-get update && sudo apt-get install -y sqlite3",
   "customizations": {
     "vscode": {
       "extensions": [
