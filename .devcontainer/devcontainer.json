@@ -1,20 +1,10 @@
 {
-  "name": "Rafo's Pipeline Tracker Env",
-  "image": "mcr.microsoft.com/devcontainers/java:17",
-  "features": {
-    "ghcr.io/devcontainers/features/sqlite3:1": {}
-  },
+  "name": "Rafo's Pipeline Tracker (Java 25 LTS)",
+  "image": "mcr.microsoft.com/devcontainers/java:25",
   "customizations": {
     "vscode": {
       "settings": {
-        "workbench.colorTheme": "Everforest Pro Dark Vibrant",
-        "java.configuration.runtimes": [
-          {
-            "name": "JavaSE-17",
-            "path": "/usr/local/sdkman/candidates/java/current",
-            "default": true
-          }
-        ]
+        "workbench.colorTheme": "Everforest Pro Dark Vibrant"
       },
       "extensions": [
         "vscjava.vscode-java-pack",
@@ -28,5 +18,6 @@
       ]
     }
   },
+  "onCreateCommand": "sudo apt-get update && sudo apt-get install -y sqlite3 curl && curl -fsSL https://deb.nodesource.com/setup_22.x | sudo -E bash - && sudo apt-get install -y nodejs",
   "postCreateCommand": "mvn clean install"
 }
